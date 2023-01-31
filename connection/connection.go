@@ -11,10 +11,10 @@ func Connect() (db *sql.DB) {
 	const (
 		Driver   string = "mysql"
 		Database string = "go_db"
-		IP       string = "0.0.0.0"
+		IP       string = "127.0.0.1"
 		Port     int    = 3306
-		UserName string = "root"
-		Password string = "password"
+		UserName string = "rdrd"
+		Password string = "@Rdrdrd123"
 	)
 
 	conn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", UserName, Password, IP, Port, Database)
