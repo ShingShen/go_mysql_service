@@ -1,11 +1,14 @@
 package main
 
 import (
-	userEntity "server/entity/user"
-	router "server/router"
+	"server/router"
+	"server/utilities/database"
+
+	goDBUserEntity "server/entity/goDBEntity/user"
 )
 
 func main() {
-	userEntity.CreateUserTable()
+	database.CreateDB("go_db")
+	goDBUserEntity.CreateUserTable()
 	router.Handler()
 }

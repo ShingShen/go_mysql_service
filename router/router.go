@@ -5,18 +5,19 @@ import (
 	"net/http"
 	"time"
 
-	userController "server/controllers/user"
+	goDBUserController "server/controllers/goDBController/user"
 )
 
 func Handler() {
 	mux := http.NewServeMux()
 
+	// go_db
 	// user
-	mux.HandleFunc("/user/create", userController.Create)
-	mux.HandleFunc("/user/update", userController.Update)
-	mux.HandleFunc("/user/get", userController.GetUser)
-	mux.HandleFunc("/user/get_all", userController.GetAllUsers)
-	mux.HandleFunc("/user/delete", userController.Delete)
+	mux.HandleFunc("/user/create", goDBUserController.Create)
+	mux.HandleFunc("/user/update", goDBUserController.Update)
+	mux.HandleFunc("/user/get", goDBUserController.GetUser)
+	mux.HandleFunc("/user/get_all", goDBUserController.GetAllUsers)
+	mux.HandleFunc("/user/delete", goDBUserController.Delete)
 
 	server := &http.Server{
 		Handler:      mux,
@@ -25,6 +26,6 @@ func Handler() {
 		Addr:         ":3301",
 	}
 
-	fmt.Println("Listening on port 3301...")
+	fmt.Printf("Listening on port %s......\n", server.Addr)
 	server.ListenAndServe()
 }
