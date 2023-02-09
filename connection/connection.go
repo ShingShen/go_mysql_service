@@ -14,7 +14,9 @@ func Connect() (db *sql.DB) {
 		IP       string = "127.0.0.1"
 		Port     int    = 3306
 		UserName string = "rdrd"
+		// UserName string = "root"
 		Password string = "@Rdrdrd123"
+		// Password string = "root"
 	)
 
 	conn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", UserName, Password, IP, Port, Database)
